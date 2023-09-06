@@ -1,0 +1,111 @@
+{
+    "name": "engine-xv-vscx",
+    "displayName": "Extensio Linguae XV",
+    "description": "XV analysis codicis et extensiones.",
+    "icon": "./art/xv-vscx.png",
+    "version": "1.0.0",
+    "publisher": "engine-software",
+    "repository": {},
+    "engines": {
+        "vscode": "^1.22.0"
+    },
+    "dependencies": {
+        "vscode-languageclient": "^7.0.0"
+    },
+    "categories": [ "Programming Languages" ],
+    "main": "./out/xv-vscx.js",
+    "activationEvents": [],
+    "contributes": {
+        "languages": [{
+            "id": "xv",
+            "extensions": [ ".xv", ".v", ".vvv" ],
+            "aliases": [ "XV", "V", "Engine XV" ],
+            "icon": { "light": "./art/xv.png", "dark": "./art/xv.png" },
+            "configuration": "./language-configuration.json",
+            "firstLine": "^importa\\s+.*;"
+        }],
+        "configuration":[
+            {
+                "title": "XV",
+                "properties": {
+                    "xV.semitaServusLinguae" : {
+                        "type": "string",
+                        "default": "xvsl",
+                        "description": "Semita Servus Linguae."
+                    },
+                    "xV.semitaCompilatoris" : {
+                        "type": "string",
+                        "default": "xv",
+                        "description": "Semita Compilatoris Linguae."
+                    },
+                    "xV.modusActuarii" : {
+                        "type": "boolean",
+                        "default": false,
+                        "description": "Ute Servus Actuarii."
+                    }
+                    ,
+                    "xV.numerusFlumenorum" : {
+                        "type": "integer",
+                        "default": 2,
+                        "minimum": 0,
+                        "maximum": 16,
+                        "description": "Numerus Flumenorum."
+                    }
+                }
+            }
+        ],
+        "grammars": [
+            {
+                "language": "xv",
+                "scopeName": "source.xv",
+                "path": "./xv.tmGrammar.json"
+            }
+        ],
+        "commands": [{
+            "command": "engine.xv.compile",
+            "title": "Compila XV",
+            "category": "XV",
+            "icon" : { "light": "./art/xv.png", "dark": "./art/xv.png" }
+        }, {
+            "command": "engine.xv.exeque",
+            "title": "Exeque XV",
+            "category": "XV",
+            "icon" : { "light": "./art/xv.png", "dark": "./art/xv.png" }
+        }, {
+            "command": "engine.xv.crea",
+            "title": "Crea XV",
+            "category": "XV",
+            "icon" : { "light": "./art/xv.png", "dark": "./art/xv.png" }
+        }],
+        "keybindings": [{
+            "command": "engine.xv.compile",
+            "key": "f7",
+            "when": "resourceLangId == xv"
+        }, {
+            "command": "engine.xv.exeque",
+            "key": "f5",
+            "when": "resourceLangId == xv"
+        }],
+        "menus": {
+            "file/newFile": [{
+                "command": "engine.xv.crea"
+            }]
+        },
+        "configurationDefaults": { "[xv]": {
+            "files.encoding": "utf8bom",
+            "editor.insertSpaces": false,
+            "editor.tabSize": 4
+        }}
+    },
+    "scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+        "publish": "vsce package"
+	},
+	"devDependencies": {
+		"@types/node": "^16.18.34",
+		"@types/vscode": "^1.22.0",
+		"typescript": "^5.1.3"
+	}
+}

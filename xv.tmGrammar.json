@@ -1,0 +1,98 @@
+{
+    "scopeName": "source.xv",
+    "patterns": [
+        { "include": "#numeric" },
+        { "include": "#string" },
+        { "include": "#comment" },
+        { "include": "#comment_large" },
+        { "include": "#punct" },
+        { "include": "#punct2" },
+        { "include": "#punct3" },
+        { "include": "#ident" }
+    ],
+    "repository": {
+        "numeric": {
+            "name": "constant.numeric",
+            "match": "\\d(\\w|\\.|(e\\+)|(E\\+)|(e\\-)|(E\\-))*"
+        },
+        "string": {
+            "name": "string",
+            "match": "\"((\\\\\")|[^\"])*\""
+        },
+        "comment": {
+            "name": "comment",
+            "match": "//.*\\n"
+        },
+        "comment_large": {
+            "name": "comment",
+            "begin": "\\/\\*",
+            "end": "\\*\\/"
+        },
+        "punct": {
+            "name": "keyword.operator",
+            "match": "[@\\^~:\\?#%&\\*\\+\\|\\/=<>!-]+"
+        },
+        "punct2": {
+            "name": "punctuation.separator",
+            "match": "[\\[\\]\\(\\)\\{\\};,\\.]"
+        },
+        "punct3": {
+            "name": "punctuation.separator",
+            "match": "[\\$\\\\]"
+        },
+        "ident": {
+            "name": "entity",
+            "match": "[A-Za-z_]\\w*",
+            "captures": [{ "patterns": [
+                { "name": "keyword", "match": "\\bsic\\b" },
+                { "name": "keyword", "match": "\\bnon\\b" },
+                { "name": "keyword", "match": "\\bspatium\\b" },
+                { "name": "keyword", "match": "\\bgenus\\b" },
+                { "name": "keyword", "match": "\\bprotocollum\\b" },
+                { "name": "keyword", "match": "\\bnomen_alternum\\b" },
+                { "name": "keyword", "match": "\\boperator\\b" },
+                { "name": "keyword", "match": "\\bintroitus\\b" },
+                { "name": "keyword", "match": "\\biacit\\b" },
+                { "name": "keyword", "match": "\\biace\\b" },
+                { "name": "keyword", "match": "\\bmagnitudo\\b" },
+                { "name": "keyword", "match": "\\bmagnitudo_maxima\\b" },
+                { "name": "keyword", "match": "\\bmodulus\\b" },
+                { "name": "keyword", "match": "\\bordo\\b" },
+                { "name": "keyword", "match": "\\bconstatus\\b" },
+                { "name": "keyword", "match": "\\bute\\b" },
+                { "name": "keyword", "match": "\\bvar\\b" },
+                { "name": "keyword", "match": "\\bimporta\\b" },
+                { "name": "keyword", "match": "\\bauxilium\\b" },
+                { "name": "keyword", "match": "\\bproba\\b" },
+                { "name": "keyword", "match": "\\bcape\\b" },
+                { "name": "keyword", "match": "\\bclassis\\b" },
+                { "name": "keyword", "match": "\\bstructor\\b" },
+                { "name": "keyword", "match": "\\bdestructor\\b" },
+                { "name": "keyword", "match": "\\bconvertor\\b" },
+                { "name": "keyword", "match": "\\bvirtualis\\b" },
+                { "name": "keyword", "match": "\\bpura\\b" },
+                { "name": "keyword", "match": "\\bdura\\b" },
+                { "name": "keyword", "match": "\\bresponde\\b" },
+                { "name": "keyword", "match": "\\bsi\\b" },
+                { "name": "keyword", "match": "\\balioqui\\b" },
+                { "name": "keyword", "match": "\\bdum\\b" },
+                { "name": "keyword", "match": "\\bfac\\b" },
+                { "name": "keyword", "match": "\\bpro\\b" },
+                { "name": "keyword", "match": "\\bexi\\b" },
+                { "name": "keyword", "match": "\\bnullus\\b" },
+                { "name": "keyword", "match": "\\bredefini\\b" },
+                { "name": "keyword", "match": "\\bhereditat\\b" },
+                { "name": "keyword", "match": "\\bfunda\\b" },
+                { "name": "keyword", "match": "\\bstructura\\b" },
+                { "name": "keyword", "match": "\\bpraeforma\\b" },
+                { "name": "keyword", "match": "\\bcrea\\b" },
+                { "name": "keyword", "match": "\\bperde\\b" },
+                { "name": "keyword", "match": "\\binitia\\b" },
+                { "name": "keyword", "match": "\\bfini\\b" },
+                { "name": "keyword", "match": "\\benumeratio\\b" },
+                { "name": "keyword", "match": "\\bacsi\\b" },
+                { "name": "keyword", "match": "\\b__decipula__\\b" }
+            ] }]
+        }
+    }
+}
