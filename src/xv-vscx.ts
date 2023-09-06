@@ -38,8 +38,9 @@ export function activate(context: vscode.ExtensionContext) {
         term.show(false);
         var file = vscode.window.activeTextEditor?.document.fileName;
         if (file != undefined) {
+            let win_pref = file[0] == '/' ? "" : "&";
             let com = vscode.workspace.getConfiguration().get("xV.semitaCompilatoris") as string;
-            let cmd = [ escape(com), escape(file), "-N" ].join(" ");
+            let cmd = [ win_pref + escape(com), escape(file), "\'-N\'" ].join(" ");
             term.sendText(cmd, true);
         }
 	});
@@ -52,8 +53,9 @@ export function activate(context: vscode.ExtensionContext) {
         term.show(false);
         var file = vscode.window.activeTextEditor?.document.fileName;
         if (file != undefined) {
+            let win_pref = file[0] == '/' ? "" : "&";
             let com = vscode.workspace.getConfiguration().get("xV.semitaCompilatoris") as string;
-            let cmd = [ escape(com), escape(file), "-Nr" ].join(" ");
+            let cmd = [ win_pref + escape(com), escape(file), "\'-Nr\'" ].join(" ");
             term.sendText(cmd, true);
         }
 	});
