@@ -5,7 +5,8 @@ import {
     LanguageClientOptions,
     ServerOptions,
     Executable,
-    TransportKind
+    TransportKind,
+    integer
 } from 'vscode-languageclient/node';
 
 let client: LanguageClient;
@@ -13,6 +14,36 @@ let client: LanguageClient;
 function escape(input: string): string {
     let s1 = input.replace("\'", "\'\'");
     return "\'" + s1 + "\'";
+}
+function make_command(argv: string[], powershell: boolean): string {
+    var av = argv;
+    let ws = (vscode.workspace.workspaceFolders != undefined && vscode.workspace.workspaceFolders.length > 0) ?
+        vscode.workspace.workspaceFolders[0].uri.path : undefined;
+    let fl = vscode.window.activeTextEditor?.document.fileName;
+    let xv = vscode.workspace.getConfiguration().get("xV.semitaCompilatoris") as string;
+    for (var i = 0; i < av.length; i++) {
+        if (ws != undefined) av[i] = av[i].replace('$LAB$', ws);
+        if (fl != undefined) av[i] = av[i].replace('$LIMA$', fl);
+        if (xv != undefined) av[i] = av[i].replace('$XVC$', xv);
+        av[i] = escape(av[i]);
+        if (powershell && i == 0) av[0] = '&' + av[0];
+    }
+    return argv.join(' ');
+}
+function make_chain(desc: string, powershell: boolean): string {
+    let cl = desc.split('\n');
+    var cs: string[] = [];
+    var ccs: integer = 0;
+    for (let i = 0; i < cl.length + 1; i++) {
+        if (i == cl.length || cl[i].length == 0) {
+            if (i > ccs) {
+                let cc = make_command(cl.slice(ccs, i), powershell);
+                cs = cs.concat(cc);
+            }
+            ccs = i + 1;
+        }
+    }
+    return cs.join(' && ');
 }
 
 export function activate(context: vscode.ExtensionContext) {
@@ -36,11 +67,10 @@ export function activate(context: vscode.ExtensionContext) {
         if (term != null) term.dispose();
         term = vscode.window.createTerminal("XV");
         term.show(false);
-        var file = vscode.window.activeTextEditor?.document.fileName;
+        let file = vscode.window.activeTextEditor?.document.fileName;
         if (file != undefined) {
-            let win_pref = file[0] == '/' ? "" : "&";
-            let com = vscode.workspace.getConfiguration().get("xV.semitaCompilatoris") as string;
-            let cmd = [ win_pref + escape(com), escape(file), "\'-N\'" ].join(" ");
+            let ls = vscode.workspace.getConfiguration().get("xV.imperataStruendi") as string;
+            let cmd = make_chain(ls, file[0] != '/');
             term.sendText(cmd, true);
         }
 	});
@@ -53,9 +83,8 @@ export function activate(context: vscode.ExtensionContext) {
         term.show(false);
         var file = vscode.window.activeTextEditor?.document.fileName;
         if (file != undefined) {
-            let win_pref = file[0] == '/' ? "" : "&";
-            let com = vscode.workspace.getConfiguration().get("xV.semitaCompilatoris") as string;
-            let cmd = [ win_pref + escape(com), escape(file), "\'-Nr\'" ].join(" ");
+            let ls = vscode.workspace.getConfiguration().get("xV.imperataExequendi") as string;
+            let cmd = make_chain(ls, file[0] != '/');
             term.sendText(cmd, true);
         }
 	});

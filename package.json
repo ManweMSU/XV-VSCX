@@ -42,14 +42,26 @@
                         "type": "boolean",
                         "default": false,
                         "description": "Ute Servus Actuarii."
-                    }
-                    ,
+                    },
                     "xV.numerusFlumenorum" : {
                         "type": "integer",
                         "default": 2,
                         "minimum": 0,
                         "maximum": 16,
                         "description": "Numerus Flumenorum."
+                    },
+                    "xV.imperataStruendi" : {
+                        "type": "string",
+                        "editPresentation": "multilineText",
+                        "default": "$XVC$\n$LIMA$\n-N",
+                        "description": "Imperata Altera pro Struendo (F7). Immutationes Possibiles: $LAB$, $LIMA$, $XVC$."
+                    }
+                    ,
+                    "xV.imperataExequendi" : {
+                        "type": "string",
+                        "editPresentation": "multilineText",
+                        "default": "$XVC$\n$LIMA$\n-Nr",
+                        "description": "Imperata Altera pro Exequendo (F5). Immutationes Possibiles: $LAB$, $LIMA$, $XVC$."
                     }
                 }
             }
