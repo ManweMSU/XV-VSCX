@@ -30,7 +30,7 @@
         [ "\\", "\\" ]
     ],
     "indentationRules": {
-        "increaseIndentPattern": "^(.)*{\\s*",
-        "decreaseIndentPattern": "^(\\s)*}(\\s)*"
+        "increaseIndentPattern": "^.*(\\{[^}]*|\\([^)]*|\\[[^\\]]*)$",
+        "decreaseIndentPattern": "^\\s*[\\}\\]\\)].*$"
     }
 }
