@@ -16,6 +16,32 @@
     "main": "./out/xv-vscx.js",
     "activationEvents": [],
     "contributes": {
+        "themes": [
+            {
+                "id": "xv.thema.lucida",
+                "label": "XV Thema Lucida",
+                "path": "./themes/xv_lucida.json",
+                "uiTheme": "vs"
+            },
+            {
+                "id": "xv.thema.lucida.moderna",
+                "label": "XV Thema Lucida Moderna",
+                "path": "./themes/xv_lucida_moderna.json",
+                "uiTheme": "vs"
+            },
+            {
+                "id": "xv.thema.tenebrosa",
+                "label": "XV Thema Tenebrosa",
+                "path": "./themes/xv_tenebrosa.json",
+                "uiTheme": "vs-dark"
+            },
+            {
+                "id": "xv.thema.tenebrosa.moderna",
+                "label": "XV Thema Tenebrosa Moderna",
+                "path": "./themes/xv_tenebrosa_moderna.json",
+                "uiTheme": "vs-dark"
+            }
+        ],
         "languages": [{
             "id": "xv",
             "extensions": [ ".xv", ".v", ".vvv" ],
@@ -55,8 +81,7 @@
                         "editPresentation": "multilineText",
                         "default": "$XVC$\n$LIMA$\n-N",
                         "description": "Imperata Altera pro Struendo (F7). Immutationes Possibiles: $LAB$, $LIMA$, $XVC$."
-                    }
-                    ,
+                    },
                     "xV.imperataExequendi" : {
                         "type": "string",
                         "editPresentation": "multilineText",
