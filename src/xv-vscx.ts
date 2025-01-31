@@ -96,10 +96,11 @@ export function activate(context: vscode.ExtensionContext) {
     try {
         let num_threads = vscode.workspace.getConfiguration().get("xV.numerusFlumenorum") as string;
         let server_options: ServerOptions;
-        if (vscode.workspace.getConfiguration().get("xV.modusActuarii")) {
+        let log = vscode.workspace.getConfiguration().get("xV.limaActuarii") as string;
+        if (log.length > 0) {
             server_options = {
                 command: vscode.workspace.getConfiguration().get("xV.semitaServusLinguae")!,
-                args: [ "--opera", "--act", "--numerus", num_threads ]
+                args: [ "--opera", "--act", log, "--numerus", num_threads ]
             };
         } else {
             server_options = {

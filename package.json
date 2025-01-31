@@ -64,10 +64,10 @@
                         "default": "xv",
                         "description": "Semita Compilatoris Linguae."
                     },
-                    "xV.modusActuarii" : {
-                        "type": "boolean",
-                        "default": false,
-                        "description": "Ute Servus Actuarii."
+                    "xV.limaActuarii" : {
+                        "type": "string",
+                        "default": "",
+                        "description": "Semita Actuarii Servi."
                     },
                     "xV.numerusFlumenorum" : {
                         "type": "integer",
