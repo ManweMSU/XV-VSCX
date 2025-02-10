@@ -49,6 +49,13 @@
             "icon": { "light": "./art/xv.png", "dark": "./art/xv.png" },
             "configuration": "./language-configuration.json",
             "firstLine": "^importa\\s+.*;"
+        }, {
+            "id": "xw",
+            "extensions": [ ".xw", ".w" ],
+            "aliases": [ "XW", "W", "Engine XW" ],
+            "icon": { "light": "./art/xw.png", "dark": "./art/xw.png" },
+            "configuration": "./language-configuration.json",
+            "firstLine": "^importa\\s+.*;"
         }],
         "configuration":[
             {
@@ -96,6 +103,11 @@
                 "language": "xv",
                 "scopeName": "source.xv",
                 "path": "./xv.tmGrammar.json"
+            },
+            {
+                "language": "xw",
+                "scopeName": "source.xv",
+                "path": "./xv.tmGrammar.json"
             }
         ],
         "commands": [{
@@ -117,11 +129,11 @@
         "keybindings": [{
             "command": "engine.xv.compile",
             "key": "f7",
-            "when": "resourceLangId == xv"
+            "when": "resourceLangId == xv || resourceLangId == xw"
         }, {
             "command": "engine.xv.exeque",
             "key": "f5",
-            "when": "resourceLangId == xv"
+            "when": "resourceLangId == xv || resourceLangId == xw"
         }],
         "menus": {
             "file/newFile": [{
@@ -129,6 +141,10 @@
             }]
         },
         "configurationDefaults": { "[xv]": {
+            "files.encoding": "utf8bom",
+            "editor.insertSpaces": false,
+            "editor.tabSize": 4
+        }, "[xw]": {
             "files.encoding": "utf8bom",
             "editor.insertSpaces": false,
             "editor.tabSize": 4

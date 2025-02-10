@@ -51,6 +51,7 @@
                 { "name": "keyword", "match": "\\bprotocollum\\b" },
                 { "name": "keyword", "match": "\\bnomen_alternum\\b" },
                 { "name": "keyword", "match": "\\boperator\\b" },
+                { "name": "keyword", "match": "\\bfunctio\\b" },
                 { "name": "keyword", "match": "\\bintroitus\\b" },
                 { "name": "keyword", "match": "\\biacit\\b" },
                 { "name": "keyword", "match": "\\biace\\b" },

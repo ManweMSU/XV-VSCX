@@ -109,7 +109,7 @@ export function activate(context: vscode.ExtensionContext) {
             };
         }
         let client_options: LanguageClientOptions = {
-            documentSelector: [{ scheme: 'file', language: 'xv' }]
+            documentSelector: [{ scheme: 'file', language: 'xv' }, { scheme: 'file', language: 'xw' }]
         };
         client = new LanguageClient(
             'xvServusLinguae',
