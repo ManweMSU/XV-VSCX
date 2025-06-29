@@ -57,6 +57,8 @@
                 { "name": "keyword", "match": "\\biace\\b" },
                 { "name": "keyword", "match": "\\bmagnitudo\\b" },
                 { "name": "keyword", "match": "\\bmagnitudo_maxima\\b" },
+                { "name": "keyword", "match": "\\bpolitio_generis\\b" },
+                { "name": "keyword", "match": "\\bpolitio_generis_maxima\\b" },
                 { "name": "keyword", "match": "\\bmodulus\\b" },
                 { "name": "keyword", "match": "\\bordo\\b" },
                 { "name": "keyword", "match": "\\bconstatus\\b" },
